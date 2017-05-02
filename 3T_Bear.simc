@@ -9,7 +9,7 @@ actions=auto_attack
 actions+=/potion,name=old_war,if=buff.rage_of_the_sleeper.up
 actions+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up
 actions+=/berserking,if=buff.rage_of_the_sleeper.up
-actions+=/incarnation,if=((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067))&cooldown.thrash_bear.remains=0
+actions+=/incarnation,if=((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067))&cooldown.thrash_bear.remains>0
 actions+=/rage_of_the_sleeper,if=buff.bear_form.up
 actions+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
 actions+=/use_item,slot=trinket1

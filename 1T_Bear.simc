@@ -9,7 +9,7 @@ actions=auto_attack
 actions+=/potion,name=old_war,if=buff.rage_of_the_sleeper.up
 actions+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up
 actions+=/berserking,if=buff.rage_of_the_sleeper.up
-actions+=/rage_of_the_sleeper,if=buff.bear_form.up
+actions+=/rage_of_the_sleeper,if=buff.bear_form.up&dot.ticking.moonfire
 actions+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
 actions+=/use_item,slot=trinket1
 actions+=/maul
