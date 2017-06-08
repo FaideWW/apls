@@ -46,7 +46,7 @@ actions.bear+=/berserking,if=buff.rage_of_the_sleeper.up
 actions.bear+=/incarnation,if=((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067))&cooldown.thrash_bear.remains>0
 actions.bear+=/rage_of_the_sleeper,if=buff.bear_form.up
 actions.bear+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
-actions.bear+=/use_item,slot=trinket1
+actions.bear+=/use_items
 actions.bear+=/thrash_bear
 actions.bear+=/mangle
 actions.bear+=/moonfire,if=buff.galactic_guardian.up,cycle_targets=1

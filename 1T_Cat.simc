@@ -14,7 +14,7 @@ actions+=/call_action_list,name=bear
 
 actions.bear+=/bear_form
 actions.bear+=/proc_sephuz
-actions.bear+=/use_item,slot=trinket1
+actions.bear+=/use_items
 actions.bear+=/incarnation
 actions.bear+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up|talent.brambles.enabled&cooldown.rage_of_the_sleeper.remains>60
 actions.bear+=/berserking,if=buff.rage_of_the_sleeper.up
@@ -26,7 +26,7 @@ actions.bear+=/maul
 actions.bear+=/mangle
 actions.bear+=/thrash_bear
 actions.bear+=/moonfire,if=buff.galactic_guardian.up
-actions.bear+=/swipe_bear	
+actions.bear+=/swipe_bear
 
 actions.cat+=/dash,if=buff.cat_form.down
 actions.cat+=/cat_form,if=buff.cat_form.down
