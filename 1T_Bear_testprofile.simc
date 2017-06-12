@@ -1,8 +1,19 @@
 
-# TODO
+druid="Maul > Swipe"
+level="110"
+race="tauren"
+role="tank"
+position="front"
+talents="http://us.battle.net/wow/en/tool/talent-calculator#Uba!0012210"
+spec="guardian"
+artifact="57:0:0:0:0:948:3:949:3:950:3:951:3:952:4:953:3:954:3:955:3:956:4:957:1:958:1:959:1:960:1:961:1:962:1:979:1:1334:1:1366:1:1509:4:1510:1:1511:1:1634:1"
+
+neck=",id=18626,stats=25900agi_6326vers_6326mastery_6326crit_6326haste"
+main_hand="claws_of_ursoc,id=128821,gem_id=0/0/0/0,ilevel=940"
+off_hand="claws_of_ursoc,id=128822,ilevel=940"
 
 actions.precombat=flask,type=flask_of_the_seventh_demon
-actions.precombat+=/food,type=seedbattered_fish_plate
+actions.precombat+=/food,type=lavish_suramar_feast
 actions.precombat+=/augmentation,type=defiled
 actions.precombat+=/bear_form
 actions.precombat+=/snapshot_stats
