@@ -1,3 +1,5 @@
+talent_override=feral_affinity
+
 actions.precombat=flask,type=flask_of_the_seventh_demon
 actions.precombat+=/food,type=seedbattered_fish_plate
 actions.precombat+=/augmentation,type=defiled
@@ -22,10 +24,10 @@ actions.bear+=/moonfire,if=!dot.moonfire.ticking&(talent.incarnation.enabled|tal
 actions.bear+=/lunar_beam,if=(dot.rip.remains>10&buff.bear_form.up)
 actions.bear+=/rage_of_the_sleeper,if=(dot.rip.remains>10&buff.bear_form.up)
 actions.bear+=/thrash_bear,if=(buff.incarnation.up=1&dot.thrash_bear.remains<=2)|talent.rend_and_tear.enabled&dot.thrash_bear.stack<3|talent.rend_and_tear.enabled&equipped.137067&dot.thrash_bear.stack<5|equipped.137056
-actions.bear+=/maul
 actions.bear+=/mangle
 actions.bear+=/thrash_bear
 actions.bear+=/moonfire,if=buff.galactic_guardian.up
+actions.bear+=/maul
 actions.bear+=/swipe_bear
 
 actions.cat+=/dash,if=buff.cat_form.down

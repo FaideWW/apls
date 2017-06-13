@@ -16,7 +16,6 @@ actions+=/incarnation,if=((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_
 actions+=/rage_of_the_sleeper,if=buff.bear_form.up
 actions+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
 actions+=/use_items
-actions+=/mangle,if=equipped.151636&!equipped.137056
 actions+=/thrash_bear
 actions+=/moonfire,if=dot.moonfire.remains<4.8&!buff.incarnation.up,cycle_targets=1,max_cycle_targets=2
 actions+=/mangle
