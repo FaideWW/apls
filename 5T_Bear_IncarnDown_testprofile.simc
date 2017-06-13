@@ -1,0 +1,55 @@
+target_error=0.05
+# iterations=1
+html="results.html"
+
+enemy=MyCustomEnemy
+actions=auto_attack,damage=3200000,range=1000000,attack_speed=1,aoe_tanks=1
+
+enemy=enemy2
+enemy=enemy3
+enemy=enemy4
+enemy=enemy5
+
+druid="Current"
+level="110"
+race="tauren"
+role="tank"
+position="front"
+talents="http://us.battle.net/wow/en/tool/talent-calculator#Uba!0012110"
+spec="guardian"
+artifact="57:0:0:0:0:948:3:949:3:950:3:951:3:952:4:953:3:954:3:955:3:956:4:957:1:958:1:959:1:960:1:961:1:962:1:979:1:1334:1:1366:1:1509:4:1510:1:1511:1:1634:1"
+
+neck=",id=18626,stats=25900agi_6326vers_6326mastery_6326crit_6326haste"
+main_hand="claws_of_ursoc,id=128821,gem_id=0/0/0/0,ilevel=940"
+off_hand="claws_of_ursoc,id=128822,ilevel=940"
+
+# Fury of Nature
+# back=,id=151802,ilevel=970
+
+# Soul of the Archdruid
+# finger1=,id=151636,ilevel=970
+
+# Lady and the Child
+# shoulder=,id=144295,ilevel=970
+
+# Luffa Wrappings
+wrist=,id=137056,ilevel=970
+
+
+actions.precombat=flask,type=flask_of_the_seventh_demon
+actions.precombat+=/food,type=seedbattered_fish_plate
+actions.precombat+=/augmentation,type=defiled
+actions.precombat+=/bear_form
+actions.precombat+=/snapshot_stats
+actions.precombat+=/potion,name=prolonged_power
+
+actions=auto_attack
+actions+=/potion,name=prolonged_power,if=buff.rage_of_the_sleeper.up
+actions+=/berserking,if=buff.rage_of_the_sleeper.up
+actions+=/bristling_fur,if=buff.rage_of_the_sleeper.down
+actions+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
+actions+=/use_items
+actions+=/thrash_bear
+actions+=/moonfire,if=dot.moonfire.remains<4.8&!buff.incarnation.up&(target.time_to_die*1.6)>(16+dot.moonfire.remains),cycle_targets=1
+actions+=/maul
+actions+=/swipe_bear

@@ -1,0 +1,104 @@
+target_error=0.1
+# iterations=1
+html="results.html"
+
+enemy=MyCustomEnemy
+actions=auto_attack,damage=3200000,range=1000000,attack_speed=1,aoe_tanks=1
+
+enemy=enemy2
+enemy=enemy3
+enemy=enemy4
+enemy=enemy5
+
+druid="Current"
+level="110"
+race="tauren"
+role="tank"
+position="front"
+talents="http://us.battle.net/wow/en/tool/talent-calculator#Uba!0012210"
+spec="guardian"
+artifact="57:0:0:0:0:948:3:949:3:950:3:951:3:952:4:953:3:954:3:955:3:956:4:957:1:958:1:959:1:960:1:961:1:962:1:979:1:1334:1:1366:1:1509:4:1510:1:1511:1:1634:1"
+
+neck=",id=18626,stats=25900agi_6326vers_6326mastery_6326crit_6326haste"
+main_hand="claws_of_ursoc,id=128821,gem_id=0/0/0/0,ilevel=940"
+off_hand="claws_of_ursoc,id=128822,ilevel=940"
+
+# Fury of Nature
+# back=,id=151802,ilevel=970
+
+# Soul of the Archdruid
+# finger1=,id=151636,ilevel=970
+
+# Lady and the Child
+# shoulder=,id=144295,ilevel=970
+
+# Luffa Wrappings
+# wrist=,id=137056,ilevel=970
+
+talent_override=balance_affinity
+talent_override=galactic_guardian
+talent_override=lunar_beam
+
+actions.precombat=flask,type=flask_of_the_seventh_demon
+actions.precombat+=/food,type=lemon_herb_filet
+actions.precombat+=/augmentation,type=defiled
+actions.precombat+=/moonkin_form
+actions.precombat+=/snapshot_stats
+actions.precombat+=/potion,name=prolonged_power
+
+actions=sunfire,if=time<1
+actions+=/call_action_list,name=moonkin,if=!dot.sunfire.ticking&!buff.rage_of_the_sleeper.up
+actions+=/call_action_list,name=bear
+
+actions.bear=bear_form,if=!buff.bear_form.up
+actions.bear+=/auto_attack
+actions.bear+=/potion,name=prolonged_power,if=buff.rage_of_the_sleeper.up
+actions.bear+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up|equipped.144432
+actions.bear+=/berserking,if=buff.rage_of_the_sleeper.up
+actions.bear+=/bristling_fur,if=!buff.rage_of_the_sleeper.up
+actions.bear+=/incarnation,if=cooldown.thrash_bear.remains>0
+actions.bear+=/lunar_beam,if=buff.rage_of_the_sleeper.up
+actions.bear+=/moonfire,if=dot.moonfire.remains<4.8&buff.incarnation.remains>10
+actions.bear+=/rage_of_the_sleeper,if=buff.bear_form.up&dot.moonfire.ticking|buff.incarnation.up
+actions.bear+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
+actions.bear+=/use_items
+actions.bear+=/pulverize,if=((cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067)))|(dot.trash_bear.stack>=2&target.time_to_die<2)|(dot.trash_bear.stack>=4&target.time_to_die<4))
+actions.bear+=/thrash_bear,if=buff.incarnation.up&equipped.137056
+actions.bear+=/mangle,if=equipped.151636&desired_targets
+actions.bear+=/thrash_bear
+actions.bear+=/mangle
+actions.bear+=/moonfire,if=dot.moonfire.remains<4.8|buff.galactic_guardian.up
+actions.bear+=/maul
+actions.bear+=/swipe_bear
+
+actions.moonkin=moonkin_form,if=!buff.moonkin_form.up
+actions.moonkin+=/sunfire
+
+copy="Mangle capped at 4"
+
+actions=sunfire,if=time<1
+actions+=/call_action_list,name=moonkin,if=!dot.sunfire.ticking&!buff.rage_of_the_sleeper.up
+actions+=/call_action_list,name=bear
+
+actions.bear=bear_form,if=!buff.bear_form.up
+actions.bear+=/auto_attack
+actions.bear+=/potion,name=prolonged_power,if=buff.rage_of_the_sleeper.up
+actions.bear+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up|equipped.144432
+actions.bear+=/berserking,if=buff.rage_of_the_sleeper.up
+actions.bear+=/bristling_fur,if=!buff.rage_of_the_sleeper.up
+actions.bear+=/incarnation,if=cooldown.thrash_bear.remains>0
+actions.bear+=/lunar_beam,if=buff.rage_of_the_sleeper.up
+actions.bear+=/moonfire,if=dot.moonfire.remains<4.8&buff.incarnation.remains>10
+actions.bear+=/rage_of_the_sleeper,if=buff.bear_form.up&dot.moonfire.ticking|buff.incarnation.up
+actions.bear+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
+actions.bear+=/use_items
+actions.bear+=/pulverize,if=((cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067)))|(dot.trash_bear.stack>=2&target.time_to_die<2)|(dot.trash_bear.stack>=4&target.time_to_die<4))
+actions.bear+=/thrash_bear
+actions.bear+=/mangle,if=spell_targets.thrash_bear<=4
+actions.bear+=/moonfire,if=(dot.moonfire.remains<4.8|buff.galactic_guardian.up)&spell_targets.thrash_bear<=4
+actions.bear+=/maul,if=spell_targets.thrash_bear<=4
+actions.bear+=/swipe_bear
+
+actions.moonkin=moonkin_form,if=!buff.moonkin_form.up
+actions.moonkin+=/sunfire
+

@@ -1,12 +1,9 @@
-target_error=0.1
+target_error=0.05
 # iterations=1
 html="results.html"
 
 enemy=MyCustomEnemy
 actions=auto_attack,damage=3200000,range=1000000,attack_speed=1,aoe_tanks=1
-
-enemy=enemy2
-enemy=enemy3
 
 druid="Current"
 level="110"
@@ -63,38 +60,3 @@ actions+=/swipe_bear
 copy="Moonweave"
 talents="http://us.battle.net/wow/en/tool/talent-calculator#Uba!0002210"
 
-actions.precombat=flask,type=flask_of_the_seventh_demon
-actions.precombat+=/food,type=lemon_herb_filet
-actions.precombat+=/augmentation,type=defiled
-actions.precombat+=/moonkin_form,if=talent.balance_affinity.enabled&equipped.151802
-actions.precombat+=/bear_form,if=!equipped.151802
-actions.precombat+=/snapshot_stats
-actions.precombat+=/potion,name=old_war
-
-actions=sunfire,if=talent.balance_affinity.enabled&equipped.151802&time<1
-actions+=/call_action_list,name=moonkin,if=talent.balance_affinity.enabled&equipped.151802&!dot.sunfire.ticking&!buff.rage_of_the_sleeper.up
-actions+=/call_action_list,name=bear
-
-actions.bear=bear_form,if=!buff.bear_form.up
-actions.bear+=/auto_attack
-actions.bear+=/potion,name=old_war,if=buff.rage_of_the_sleeper.up
-actions.bear+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up|equipped.144432
-actions.bear+=/berserking,if=buff.rage_of_the_sleeper.up
-actions.bear+=/bristling_fur,if=!buff.rage_of_the_sleeper.up
-actions.bear+=/incarnation,if=cooldown.thrash_bear.remains>0
-actions.bear+=/moonfire,if=dot.moonfire.remains<4.8&buff.incarnation.remains>10
-actions.bear+=/rage_of_the_sleeper,if=buff.bear_form.up&dot.moonfire.ticking|buff.incarnation.up
-actions.bear+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
-actions.bear+=/use_items
-actions.bear+=/pulverize,if=((cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067)))|(dot.trash_bear.stack>=2&target.time_to_die<2)|(dot.trash_bear.stack>=4&target.time_to_die<4))
-actions.bear+=/thrash_bear,if=buff.incarnation.up&equipped.137056
-actions.bear+=/mangle,if=equipped.151636&desired_targets
-actions.bear+=/thrash_bear
-actions.bear+=/maul,if=equipped.151636&talent.bristling_fur.enabled
-actions.bear+=/mangle
-actions.bear+=/moonfire,if=dot.moonfire.remains<4.8|buff.galactic_guardian.up
-actions.bear+=/maul
-actions.bear+=/swipe_bear
-
-actions.moonkin=moonkin_form,if=!buff.moonkin_form.up
-actions.moonkin+=/sunfire

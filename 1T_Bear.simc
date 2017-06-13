@@ -7,7 +7,7 @@ actions.precombat+=/potion,name=old_war
 
 actions=auto_attack
 actions+=/potion,name=old_war,if=buff.rage_of_the_sleeper.up
-actions+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up|equipped.144432
+actions+=/barkskin,if=talent.brambles.enabled&buff.rage_of_the_sleeper.up|!talent.brambles.enabled&equipped.144432
 actions+=/berserking,if=buff.rage_of_the_sleeper.up
 actions+=/bristling_fur,if=!buff.rage_of_the_sleeper.up
 actions+=/incarnation,if=cooldown.thrash_bear.remains>0
