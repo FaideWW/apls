@@ -16,8 +16,9 @@ actions+=/rage_of_the_sleeper,if=buff.bear_form.up&dot.moonfire.ticking|buff.inc
 actions+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
 actions+=/use_items
 actions+=/pulverize,if=((cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067)))|(dot.trash_bear.stack>=2&target.time_to_die<2)|(dot.trash_bear.stack>=4&target.time_to_die<4))
+actions+=/mangle,if=talent.soul_of_the_forest.enabled
 actions+=/thrash_bear
-actions+=/maul,if=equipped.151636&talent.bristling_fur.enabled
+actions+=/maul,if=talent.soul_of_the_forest.enabled&talent.bristling_fur.enabled
 actions+=/mangle
 actions+=/moonfire,if=dot.moonfire.remains<4.8|buff.galactic_guardian.up
 actions+=/maul
