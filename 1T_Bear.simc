@@ -20,5 +20,5 @@ actions+=/thrash_bear
 actions+=/mangle
 actions+=/moonfire,if=buff.galactic_guardian.up&target.adds=0|(dot.moonfire.remains<5&!(talent.galactic_guardian.enabled))
 actions+=/maul
-actions+=/moonfire,if=equipped.151802&eqipped.144295&target.adds<2
+actions+=/moonfire,if=equipped.151802&equipped.144295&target.adds<2
 actions+=/swipe_bear
