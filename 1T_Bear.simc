@@ -8,6 +8,7 @@ actions.precombat+=/potion,name=old_war
 actions=auto_attack
 actions+=/bristling_fur
 actions+=/potion,name=old_war,if=buff.rage_of_the_sleeper.up
+actions+=/berserking,if=buff.rage_of_the_sleeper.up
 actions+=/rage_of_the_sleeper,if=(talent.rend_and_tear.enabled&((dot.thrash_bear.stack=3&!equipped.137067)|(dot.thrash_bear.stack=5&equipped.137067)))|!talent.rend_and_tear.enabled
 actions+=/incarnation,if=((cooldown.thrash_bear.remains>gcd&!action.thrash_bear.usable)|(cooldown.mangle.remains>gcd&!action.mangle.usable))
 actions+=/proc_sephuz
