@@ -17,7 +17,7 @@ actions+=/moonfire,if=(buff.incarnation.remains>15&!dot.moonfire.ticking)
 actions+=/barkskin,if=(talent.brambles.enabled&buff.rage_of_the_sleeper.up)
 actions+=/maul,if=(cooldown.rage_of_the_sleeper.remains>4&((rage>90&cooldown.thrash_bear.remains>gcd)|(cooldown.thrash_bear.remains<gcd&!action.thrash_bear.usable|cooldown.mangle.remains<gcd&!action.mangle.usable)&rage>80))|(cooldown.rage_of_the_sleeper.remains<4&((rage>80&cooldown.thrash_bear.remains>gcd)|(cooldown.thrash_bear.remains<gcd&!action.thrash_bear.usable|cooldown.mangle.remains<gcd&!action.mangle.usable)&rage>70))
 actions+=/pulverize,if=((cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=5&equipped.137067)|(dot.thrash_bear.stack=3&!equipped.137067)))|(dot.thrash_bear.stack>=2&target.time_to_die<2)|(dot.thrash_bear.stack>=4&target.time_to_die<4))
-actions+=/thrash_bear,if=(buff.incarnation.up=1&dot.thrash_bear.remains<=2)|talent.rend_and_tear.enabled&dot.thrash_bear.stack<3|talent.rend_and_tear.enabled&equipped.137067&dot.thrash_bear.stack<5|equipped.137056
+actions+=/thrash_bear,if=((buff.incarnation.up=1&dot.thrash_bear.remains<=2)|talent.rend_and_tear.enabled&dot.thrash_bear.stack<3|talent.rend_and_tear.enabled&equipped.137067&dot.thrash_bear.stack<5|equipped.137056)&!talent.soul_of_the_forest.enabled
 actions+=/mangle
 actions+=/thrash_bear
 actions+=/moonfire,if=(buff.galactic_guardian.up&target.adds=0)|(dot.moonfire.remains<5&!(talent.galactic_guardian.enabled))
