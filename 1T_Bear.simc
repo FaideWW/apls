@@ -20,7 +20,7 @@ actions+=/pulverize,if=((cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=
 actions+=/thrash_bear,if=((buff.incarnation.up=1&dot.thrash_bear.remains<=2)|talent.rend_and_tear.enabled&dot.thrash_bear.stack<3|talent.rend_and_tear.enabled&equipped.137067&dot.thrash_bear.stack<5|equipped.137056)&!talent.soul_of_the_forest.enabled
 actions+=/mangle
 actions+=/thrash_bear
-actions+=/moonfire,if=(buff.galactic_guardian.up&target.adds=0)|(dot.moonfire.remains<5&!(talent.galactic_guardian.enabled))
+actions+=/moonfire,if=(buff.galactic_guardian.up&active_enemies=1)|(dot.moonfire.remains<5&!(talent.galactic_guardian.enabled))
 actions+=/maul
-actions+=/moonfire,if=(equipped.151802&equipped.144295&target.adds<2)|(dot.moonfire.remains<5&talent.galactic_guardian.enabled)
+actions+=/moonfire,if=(equipped.151802&equipped.144295&active_enemies<3)|(dot.moonfire.remains<5&talent.galactic_guardian.enabled)
 actions+=/swipe_bear
