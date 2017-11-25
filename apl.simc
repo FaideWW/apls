@@ -13,7 +13,7 @@ actions.precombat+=/potion
 actions=auto_attack
 actions+=/call_action_list,name=cooldowns
 actions+=/maul,if=rage.deficit<8&active_enemies<6
-actions+=/pulverize,if=cooldown.thrash_bear.remains<2&(dot.thrash_bear.stack=dot.thrash_bear.max_stack)
+actions+=/pulverize,if=cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=3&!equipped.elizes_everlasting_encasement)|(dot.thrash_bear.stack=5&equipped.elizes_everlasting_encasement))
 actions+=/moonfire,if=!talent.galactic_guardian.enabled&(!dot.moonfire.ticking|(buff.incarnation.up&dot.moonfire.refreshable))&active_enemies=1
 actions+=/thrash_bear,if=equipped.luffa_wrappings|artifact.jagged_claws.rank>5|active_enemies>1
 actions+=/mangle,if=active_enemies<3|(buff.incarnation.up&active_enemies<4)
