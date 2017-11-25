@@ -3,32 +3,38 @@ flask=seventh_demon
 food=lavish_suramar_feast
 augmentation=defiled
 
+# Executed before combat begins. Accepts non-harmful actions only.
 actions.precombat=flask
 actions.precombat+=/food
 actions.precombat+=/augmentation
 actions.precombat+=/bear_form
 actions.precombat+=/snapshot_stats
 actions.precombat+=/potion
+actions.precombat+=/variable,name=latc_or_fon_equipped,value=equipped.lady_and_the_child|equipped.fury_of_nature
+actions.precombat+=/variable,name=max_thrash_stacks,value=3,if=!equipped.elizes_everlasting_encasement
+actions.precombat+=/variable,name=max_thrash_stacks,value=5,if=equipped.elizes_everlasting_encasement
 
+# Executed every time the actor is available.
 actions=auto_attack
 actions+=/call_action_list,name=cooldowns
-actions+=/maul,if=rage.deficit<8&active_enemies<6
-actions+=/pulverize,if=cooldown.thrash_bear.remains<2&((dot.thrash_bear.stack=3&!equipped.elizes_everlasting_encasement)|(dot.thrash_bear.stack=5&equipped.elizes_everlasting_encasement))
+actions+=/maul,if=active_enemies<6&(rage.deficit<8|cooldown.thrash_bear.remains>gcd&rage.deficit<20)
+actions+=/pulverize,if=cooldown.thrash_bear.remains<2&dot.thrash_bear.stack=variable.max_thrash_stacks
 actions+=/moonfire,if=!talent.galactic_guardian.enabled&(!dot.moonfire.ticking|(buff.incarnation.up&dot.moonfire.refreshable))&active_enemies=1
-actions+=/thrash_bear,if=equipped.luffa_wrappings|artifact.jagged_claws.rank>5|active_enemies>1
-actions+=/mangle,if=active_enemies<3|(buff.incarnation.up&active_enemies<4)
+actions+=/thrash_bear,if=((buff.incarnation.up&(dot.thrash_bear.refreshable|(equipped.luffa_wrappings|artifact.jagged_claws.rank>4)))|dot.thrash_bear.stack<variable.max_thrash_stacks|(equipped.luffa_wrappings&artifact.jagged_claws.rank>5))&!talent.soul_of_the_forest.enabled|active_enemies>1
+actions+=/mangle,if=active_enemies<4
 actions+=/thrash_bear
-actions+=/moonfire,if=talent.galactic_guardian.enabled&buff.galactic_guardian.up&(active_enemies<4|(active_enemies<6&dot.moonfire.refreshable)),cycle_targets=1
-actions+=/moonfire,if=!talent.galactic_guardian.enabled&dot.moonfire.refreshable,cycle_targets=1
-actions+=/maul,if=(cooldown.rage_of_the_sleeper.remains>10|buff.rage_of_the_sleeper.up)&active_enemies<6
+actions+=/moonfire,if=!variable.latc_or_fon_equipped&buff.galactic_guardian.up&(active_enemies<4|dot.moonfire.refreshable&active_enemies<5),cycle_targets=1
+actions+=/moonfire,if=variable.latc_or_fon_equipped&buff.galactic_guardian.up&(active_enemies<5|dot.moonfire.refreshable&active_enemies<6),cycle_targets=1
+actions+=/moonfire,if=dot.moonfire.refreshable&!talent.galactic_guardian.enabled,cycle_targets=1
+actions+=/maul,if=active_enemies<6&(cooldown.rage_of_the_sleeper.remains>10|buff.rage_of_the_sleeper.up)
+actions+=/moonfire,if=dot.moonfire.refreshable&active_enemies<3,cycle_targets=1
 actions+=/swipe_bear
 
 actions.cooldowns=bristling_fur,if=!buff.rage_of_the_sleeper.up
 actions.cooldowns+=/potion,if=buff.rage_of_the_sleeper.up
 actions.cooldowns+=/berserking,if=buff.rage_of_the_sleeper.up
-actions.cooldowns+=/rage_of_the_sleeper,if=(talent.rend_and_tear.enabled&((dot.thrash_bear.stack=3&!equipped.elizes_everlasting_encasement)|(dot.thrash_bear.stack=5&equipped.elizes_everlasting_encasement)))|!talent.rend_and_tear.enabled
-actions.cooldowns+=/incarnation,if=(talent.rend_and_tear.enabled&((dot.thrash_bear.stack=3&!equipped.elizes_everlasting_encasement)|(dot.thrash_bear.stack=5&equipped.elizes_everlasting_encasement)))|!talent.rend_and_tear.enabled
+actions.cooldowns+=/rage_of_the_sleeper,if=(talent.rend_and_tear.enabled&dot.thrash_bear.stack=variable.max_thrash_stacks)|!talent.rend_and_tear.enabled
+actions.cooldowns+=/incarnation,if=(talent.rend_and_tear.enabled&dot.thrash_bear.stack=variable.max_thrash_stacks)|!talent.rend_and_tear.enabled
 actions.cooldowns+=/barkskin,if=talent.brambles.enabled&(buff.rage_of_the_sleeper.up|talent.survival_of_the_fittest.enabled)
 actions.cooldowns+=/proc_sephuz,if=cooldown.thrash_bear.remains=0
 actions.cooldowns+=/use_items,if=cooldown.rage_of_the_sleeper.remains>12|buff.rage_of_the_sleeper.up|target.time_to_die<22
-
