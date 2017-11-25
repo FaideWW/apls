@@ -18,7 +18,7 @@ actions+=/moonfire,if=!talent.galactic_guardian.enabled&(!dot.moonfire.ticking|(
 actions+=/thrash_bear,if=equipped.luffa_wrappings|artifact.jagged_claws.rank>5|active_enemies>1
 actions+=/mangle,if=active_enemies<3|(buff.incarnation.up&active_enemies<4)
 actions+=/thrash_bear
-actions+=/moonfire,if=talent.galactic_guardian.enabled&buff.galactic_guardian.up&active_enemies<6
+actions+=/moonfire,if=talent.galactic_guardian.enabled&buff.galactic_guardian.up&(active_enemies<4|(active_enemies<6&dot.moonfire.refreshable)),cycle_targets=1
 actions+=/moonfire,if=!talent.galactic_guardian.enabled&dot.moonfire.refreshable,cycle_targets=1
 actions+=/maul,if=(cooldown.rage_of_the_sleeper.remains>10|buff.rage_of_the_sleeper.up)&active_enemies<6
 actions+=/swipe_bear
